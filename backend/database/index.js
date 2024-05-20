@@ -1,6 +1,6 @@
 const { Sequelize, DataTypes } = require("sequelize");
 
-const sequelize = new Sequelize("movies", "root", "root", {
+const sequelize = new Sequelize("movies", "root", "roots", {
   host: "localhost",
   dialect: "mysql",
 });
@@ -19,7 +19,7 @@ sequelize
   });
 
 // sequelize
-//   .sync({ force: true })
+//   .sync({ force: false })
 //   .then(() => {
 //     console.log("phrase table created successfully!");
 //   })
