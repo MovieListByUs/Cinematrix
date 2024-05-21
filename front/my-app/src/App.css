@@ -40,3 +40,66 @@
 .read-the-docs {
   color: #888;
 }
+
+
+
+
+.main-menu {
+  width: 250px;
+  background-color: #222;
+  color: #fff;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.user-info {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.user-info img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.user-info p {
+  margin: 0;
+  font-size: 16px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item {
+  margin-bottom: 10px;
+}
+
+.nav-item a {
+  display: block;
+  padding: 15px;
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.nav-item a:hover {
+  background-color: #444;
+}
+
+.nav-text {
+  margin-left: 10px;
+}
+
+.nav-icon {
+  margin-right: 10px;
+}

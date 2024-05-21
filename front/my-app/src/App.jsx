@@ -1,62 +1,40 @@
 import React, { useEffect, useState } from 'react';
-import { Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import axios from 'axios';
 import './App.css';
+import Categories from './component/Category/Categories';
+import Home from './component/home/Home';
+import OneMovie from './component/oneMovie/OneMovie';
+import MovieDetails from './component/MovieDetaills/MovieDetails';
 
 function App() {
-  const [category, setCategory] = useState('');
+  const [data, setData] = useState([]);
+  const [refre, setRefre] = useState(false);
+
+
+
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/api/movies/${category}`)
-      .then((response) => {
-        console.log(response.data);
+      .get("http://localhost:4000/api/movies/getAll")
+      .then((result) => {
+        console.log(result.data);
+        setData(result.data);
       })
-      .catch((err) => {
-        console.error(err);
-      });
-  }, [category]);
+      .catch((err) => console.error(err));
+
+  }, [refre]);
 
   return (
     <>
       <Router>
         <Routes>
-          <Route path=""></Route>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/cats" element={<Categories />}></Route>
+          <Route path="/one" element={<OneMovie />}></Route>
+          <Route path="/movie/:id" element={<MovieDetails />}></Route>
         </Routes>
       </Router>
-      <nav className="main-menu">
-        <div>
-          <div className="user-info">
-            <img src="" alt="user" />
-            <p />
-          </div>
-          <ul>
-            <li className="nav-item active">
-              <a href="#">
-                <i className="fa fa-map nav-icon" />
-                <span className="nav-text">Discover</span>
-              </a>
-            </li>
-            <li className="nav-item">
-              <a href="#">
-                <i className="fa fa-arrow-trend-up nav-icon" />
-                <span className="nav-text">Trending</span>
-              </a>
-            </li>
-            <li className="nav-item">
-              <a href="#">
-                <i className="fa fa-circle-play nav-icon" />
-                <span className="nav-text">Playlist</span>
-              </a>
-            </li>
-            <li className="nav-item">
-              <a href="#">
-                <i className="fa fa-heart nav-icon" />
-                <span className="nav-text">Favorites</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+     
     </>
   );
 }
