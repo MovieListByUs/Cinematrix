@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
   const Movies = sequelize.define('movie', {
     name: DataTypes.TEXT,
-    category: {
+    cats: {
       type: DataTypes.TEXT,
     },
     imgUrl: {
