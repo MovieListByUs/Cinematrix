@@ -1,14 +1,17 @@
-import React from 'react'
+import React from 'react';
+import { useLocation } from 'react-router-dom';
 
-function MovieDetails({el}) {
+function MovieDetails() {
+  const location = useLocation();
+  const { elem } = location.state;
+  return (
+    <div className='details'>
+      <h2 id='name'>{elem.name}</h2>
+      <img src={elem.imgUrl} alt=""  id='img'/>
+          <p id='duration'>Duration: {elem.time}</p>
+          <p id='age'>Year of release: {elem.age}</p>
+    </div>
+  );
+}
 
-    return (
-        <div>
-          <h2>{el.title}</h2>
-          <p>Duration: {el.time}</p>
-          <p>Year of release: {el.age}</p>
-        </div>
-      );
-    }
-
-export default MovieDetails
+export default MovieDetails;

@@ -20,7 +20,7 @@ function App() {
         console.log(result.data);
         setData(result.data);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => console.log(err));
 
   }, [refre]);
 
@@ -31,7 +31,7 @@ function App() {
           <Route path="/" element={<Home />}></Route>
           <Route path="/cats" element={<Categories />}></Route>
           <Route path="/one" element={<OneMovie />}></Route>
-          <Route path="/movie/:id" element={<MovieDetails />}></Route>
+          <Route path="/movie" element={<MovieDetails />}></Route>
         </Routes>
       </Router>
      

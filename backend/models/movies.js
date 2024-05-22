@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
     },
     age: DataTypes.INTEGER,
-    time: DataTypes.INTEGER,
+    time: DataTypes.STRING,
   });
   return Movies;
 };
