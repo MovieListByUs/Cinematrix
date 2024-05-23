@@ -3,7 +3,7 @@ import OneMovie from '../oneMovie/OneMovie';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 function Categories() {
-  const cats = ['Action', 'Drama', 'Fantasy', 'Horror', 'Comedy', 'Romance'];
+  const cats = ['Action', 'Drama', 'Thriller', 'Horror', 'Comedy', 'Science Fiction'];
 
   const [category, setCategory] = useState('');
   const [movies, setMovies] = useState([]);
@@ -23,19 +23,13 @@ function Categories() {
       });
   };
 
+
   return (
-    <div>
+    <div className="categories-container">
       {cats.map((el, i) => {
         return (
-          <div key={i}>
-            {/* <OneMovie el={el}  /> */}
-            <h3
-              onClick={() => {
-                getCats(el);
-              }}
-            >
-              {el}
-            </h3>
+          <div className="category-item" key={i} onClick={() => getCats(el)}>
+            <h3>{el}</h3>
           </div>
         );
       })}

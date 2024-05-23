@@ -1,6 +1,8 @@
+const db = require("../database/index.js");
+
 module.exports = {
   getAllUser: (req, res) => {
-    db.user
+    db.User
       .findAll()
       .then((result) => res.send(result))
       .catch((err) => {
@@ -8,7 +10,7 @@ module.exports = {
       });
   },
   addUser: (req, res) => {
-    db.user
+    db.User
       .create(req.body)
       .then((result) => {
         console.log(result);
@@ -18,7 +20,7 @@ module.exports = {
   },
   removiiUser: async (req, res) => {
     try {
-      const result = await db.user.destroy({ where: { id: req.params.id } });
+      const result = await db.User.destroy({ where: { id: req.params.id } });
       console.log(result);
       res.sendStatus(200); 
     } catch (err) {
@@ -28,7 +30,7 @@ module.exports = {
   },
   updatiiUser: async (req, res) => {
     try {
-      const result = await db.user.update(req.body, {
+      const result = await db.User.update(req.body, {
         where: { id: req.params.id },
       });
       res.send(result);

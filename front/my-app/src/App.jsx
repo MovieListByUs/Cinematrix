@@ -6,6 +6,7 @@ import Categories from './component/Category/Categories';
 import Home from './component/home/Home';
 import OneMovie from './component/oneMovie/OneMovie';
 import MovieDetails from './component/MovieDetaills/MovieDetails';
+import MyList from './component/Mylist/MyList';
 
 function App() {
   const [data, setData] = useState([]);
@@ -32,6 +33,7 @@ function App() {
           <Route path="/cats" element={<Categories />}></Route>
           <Route path="/one" element={<OneMovie />}></Route>
           <Route path="/movie" element={<MovieDetails />}></Route>
+          <Route path="/list" element={<MyList />}></Route>
         </Routes>
       </Router>
      

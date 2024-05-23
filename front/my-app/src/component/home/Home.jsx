@@ -34,7 +34,8 @@ function Home() {
           <li className="nav-item">
             <a href="#">
               <i className="fa fa-circle-play nav-icon" />
-              <span className="nav-text">My List</span>
+              <span className="nav-text"
+              onClick={()=>{navigate('/list')}}>My List</span>
             </a>
           </li>
           <li className="nav-item">
