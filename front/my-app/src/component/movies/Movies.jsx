@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./Movies.css";
+import Navbar from "../navbar/Navbar";
 const Movies = ({ data, refre, setRefre }) => {
   const navigate = useNavigate();
   const one = (id) => {
@@ -23,6 +24,9 @@ const Movies = ({ data, refre, setRefre }) => {
   };
   return (
     <div>
+      <div className="nav">
+        <Navbar />
+      </div>
       {data.map((el, i) => {
         return (
           <div key={i}>
@@ -40,9 +44,11 @@ const Movies = ({ data, refre, setRefre }) => {
                   >
                     {el.name}
                   </h1>
-                  <h4>2017, David Ayer</h4>
-                  <span className="minutes">117 min</span>
-                  <p className="type">Action, Crime, Fantasy</p>
+                  <h4>
+                    {el.year}, {el.author}
+                  </h4>
+                  <span className="minutes">{el.time} min</span>
+                  <p className="type">{el.category}</p>
                 </div>
                 <div className="movie_desc">
                   <p className="text">{el.description}</p>

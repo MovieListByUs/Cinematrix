@@ -38,6 +38,7 @@ function App() {
             path="/one"
             element={<One />}
             refre={refre}
+            setData={setData}
             setRefre={setRefre}
           />
         </Routes>
