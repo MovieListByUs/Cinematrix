@@ -18,6 +18,7 @@ function App() {
       })
       .catch((err) => console.error(err));
   }, [refre]);
+
   return (
     <>
       <Router>
@@ -27,6 +28,11 @@ function App() {
             exact
             path="/get"
             element={<Movies data={data} refre={refre} setRefre={setRefre} />}
+          />
+          <Route
+            exact
+            path="/oneMovie/:id"
+            element={<Movies/>}
           />
           <Route
             exact

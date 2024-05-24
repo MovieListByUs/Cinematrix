@@ -15,18 +15,21 @@ const Navbar = () => {
             }}
           />
         </div>
-        <button id="html">
-          <span
-            id="htmltxt"
-            onClick={() => {
-              navigate("/add");
-            }}
-          >
-            ADDING
-          </span>
+        <button
+          id="html"
+          onClick={() => {
+            navigate("/add");
+          }}
+        >
+          <span id="htmltxt">ADDING</span>
         </button>
-        <button id="css">
-          <span id="htmltxt">CSS</span>
+        <button
+          id="css"
+          onClick={() => {
+            navigate("/get");
+          }}
+        >
+          <span id="htmltxt">Movies</span>
         </button>
         <button id="JS">
           <span id="htmltxt">JavaScript</span>
