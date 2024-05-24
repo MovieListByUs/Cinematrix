@@ -26,13 +26,13 @@ function Home() {
             </a>
           </li>
           <li className="nav-item">
-            <a href="#">
+            <a>
               <i className="fa fa-arrow-trend-up nav-icon" />
               <span className="nav-text">Trending</span>
             </a>
           </li>
           <li className="nav-item">
-            <a href="#">
+            <a>
               <i className="fa fa-circle-play nav-icon" />
               <span className="nav-text"
               onClick={()=>{navigate('/list')}}>My List</span>
