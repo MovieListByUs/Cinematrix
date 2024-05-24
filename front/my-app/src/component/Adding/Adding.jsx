@@ -3,6 +3,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { redirect, useNavigate } from "react-router-dom";
+import Navbar from "../navbar/Navbar";
 import "./Add.css";
 const Adding = ({ refre, setRefre }) => {
   const navigate = useNavigate();
@@ -35,6 +36,9 @@ const Adding = ({ refre, setRefre }) => {
   };
   return (
     <div>
+      <div className="nav">
+        <Navbar />
+      </div>
       <form>
         <fieldset>
           <legend>adding Movies</legend>
