@@ -11,7 +11,7 @@ const Navbar = () => {
             className="hola"
             src="http://icons.iconarchive.com/icons/sirubico/black-metal/128/Web-b-icon.png"
             onClick={() => {
-              navigate("/");
+              navigate("/home");
             }}
           />
         </div>

@@ -31,9 +31,9 @@ function Login() {
 
       // when we log in we should navigate to appropriate dashboard based on the account's role
       if (decoded.role === "admin") {
-        navigate("/admin-dashboard");
+        navigate("/home");
       } else {
-        navigate("/user-dashboard");
+        navigate("/Userhome");
       }
     } catch (error) {
       console.error("Login error:", error);
