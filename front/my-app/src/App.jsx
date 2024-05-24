@@ -1,14 +1,32 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+
+
+
+import { useEffect, useState } from "react";
 import Login from "./component/home/Login";
 import Signup from "./component/home/Signup";
-import UserDashboard from "./component/home/UserDashboard";
-import AdminDashboard from "./component/home/AdminDashboard";
-
+import axios from "axios";
+import Home from "./component/home/Home";
+import Movies from "./component/movies/Movies";
+import One from "./component/oneMovie/One";
+import "./App.css";
+import { BrowserRouter as Router, Route, Routes, Link  } from "react-router-dom";
+import Adding from "./component/Adding/Adding";
 function App() {
+  const [data, setData] = useState([]);
+  const [refre, setRefre] = useState(false);
+  useEffect(() => {
+    axios
+      .get("http://localhost:4000/api/movies/getAll")
+      .then((response) => {
+        console.log(response.data);
+        setData(response.data);
+      })
+      .catch((err) => console.error(err));
+  }, [refre]);
   return (
-    <Router>
-      <div>
+    <>
+      <Router>
+    <div>
         <nav>
           <ul>
             <li>
@@ -19,15 +37,35 @@ function App() {
             </li>
           </ul>
         </nav>
-
+    </div>
         <Routes>
-          <Route path="/login" element={<Login />} />
+          <Route exact path="/" element={<Home />} />
+          <Route
+            exact
+            path="/get"
+            element={<Movies data={data} refre={refre} setRefre={setRefre} />}
+          />
+          <Route
+            exact
+            path="/add"
+            element={<Adding refre={refre} setRefre={setRefre} />}
+          />
+          <Route
+            exact
+            path="/one"
+            element={<One />}
+            refre={refre}
+            setData={setData}
+            setRefre={setRefre}
+          />
+               <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/user-dashboard" element={<UserDashboard />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
         </Routes>
-      </div>
-    </Router>
+      </Router>
+    </>
+
   );
 }
 
