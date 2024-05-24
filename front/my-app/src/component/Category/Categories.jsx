@@ -1,30 +1,35 @@
 import React, { useEffect, useState } from 'react';
 import OneMovie from '../oneMovie/OneMovie';
-
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 function Categories() {
-  const cats = ['Action', 'Drama', 'Fantasy', 'Horror', 'Comedy', 'Romance'];
+  const cats = ['Action', 'Drama', 'Thriller', 'Horror', 'Comedy', 'Science Fiction'];
 
   const [category, setCategory] = useState('');
   const [movies, setMovies] = useState([]);
 
-  useEffect(() => {
+  const navigate = useNavigate();
+
+  const getCats = (category) => {
     axios
-      .get(`http://localhost:4000/api/movies/${category}`)
+      .get(`http://localhost:4000/api/movies/category/${category}`)
       .then((response) => {
-        console.log(response.data);
+        console.log('respose', response.data);
         setMovies(response.data);
+        navigate('/one', { state: { movie: response.data } });
       })
       .catch((err) => {
-        console.error(err);
+        console.log(err);
       });
-  }, [category]);
+  };
+
 
   return (
-    <div>
+    <div className="categories-container">
       {cats.map((el, i) => {
         return (
-          <div key={i}>
-            <OneMovie el={el} movies={movies} setMovies={setMovies} />
+          <div className="category-item" key={i} onClick={() => getCats(el)}>
+            <h3>{el}</h3>
           </div>
         );
       })}
