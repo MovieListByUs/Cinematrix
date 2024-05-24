@@ -1,6 +1,10 @@
 
-
-
+import './App.css';
+import Categories from './component/Category/Categories';
+import Home from './component/home/Home';
+import OneMovie from './component/oneMovie/OneMovie';
+import MovieDetails from './component/MovieDetaills/MovieDetails';
+import MyList from './component/Mylist/MyList';
 import { useEffect, useState } from "react";
 import Login from "./component/home/Login";
 import Signup from "./component/home/Signup";
@@ -62,9 +66,15 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/user-dashboard" element={<UserDashboard />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
+             <Route path="/" element={<Home />}></Route>
+          <Route path="/cats" element={<Categories />}></Route>
+          <Route path="/one" element={<OneMovie />}></Route>
+          <Route path="/movie" element={<MovieDetails />}></Route>
+          <Route path="/list" element={<MyList />}></Route>
         </Routes>
       </Router>
     </>
+
 
   );
 }
