@@ -12,7 +12,7 @@ function MyList() {
 
       {movieList.map((el, i) => (
         <div className="movie-container" key={i}>
-          <img className="movie-img" src={el.imgUrl} alt={el.name} />
+          <img className="movie-img" src={el.imgUrl} alt="" />
           <div className="name-container">
             <h3 className="movie-name">{el.name}</h3>
           </div>
