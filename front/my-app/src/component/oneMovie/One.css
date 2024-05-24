@@ -1,3 +1,31 @@
-.uno{
-    width: 400px;
-}
+.form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  input[type='text'],
+  input[type='email'],
+  textarea {
+    width: calc(100% - 140px); 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: inline-block;
+  }
+  
+  .photo {
+    display: inline-block;
+    vertical-align: top;
+  }
+  
+  .photo-preview {
+    width: 120px; 
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  

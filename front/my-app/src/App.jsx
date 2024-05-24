@@ -18,6 +18,7 @@ function App() {
       })
       .catch((err) => console.error(err));
   }, [refre]);
+
   return (
     <>
       <Router>
@@ -30,6 +31,11 @@ function App() {
           />
           <Route
             exact
+            path="/oneMovie/:id"
+            element={<Movies/>}
+          />
+          <Route
+            exact
             path="/add"
             element={<Adding refre={refre} setRefre={setRefre} />}
           />
@@ -38,6 +44,7 @@ function App() {
             path="/one"
             element={<One />}
             refre={refre}
+            setData={setData}
             setRefre={setRefre}
           />
         </Routes>
