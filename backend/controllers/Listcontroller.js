@@ -1,7 +1,11 @@
-const db = require("../database/index.js");
+
+
+const db = require('../database/index.js');
 
 module.exports = {
-  addToList: (req, res) => {
+    addToList: (req, res) => {
+    console.log(req.body, 'hi');
+
     db.MyList.create({ movieId: req.body.movieId, userId: req.body.userId })
       .then((result) => {
         res.send(result);
