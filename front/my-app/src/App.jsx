@@ -1,10 +1,15 @@
+
+
+
 import { useEffect, useState } from "react";
+import Login from "./component/home/Login";
+import Signup from "./component/home/Signup";
 import axios from "axios";
 import Home from "./component/home/Home";
 import Movies from "./component/movies/Movies";
 import One from "./component/oneMovie/One";
 import "./App.css";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Link  } from "react-router-dom";
 import Adding from "./component/Adding/Adding";
 function App() {
   const [data, setData] = useState([]);
@@ -22,6 +27,18 @@ function App() {
   return (
     <>
       <Router>
+    <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
+            <li>
+              <Link to="/signup">Signup</Link>
+            </li>
+          </ul>
+        </nav>
+    </div>
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route
@@ -47,9 +64,14 @@ function App() {
             setData={setData}
             setRefre={setRefre}
           />
+               <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/user-dashboard" element={<UserDashboard />} />
+          <Route path="/admin-dashboard" element={<AdminDashboard />} />
         </Routes>
       </Router>
     </>
+
   );
 }
 
