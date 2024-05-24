@@ -1,14 +1,17 @@
 module.exports = (sequelize, DataTypes) => {
   const Movies = sequelize.define('movie', {
     name: DataTypes.TEXT,
-    cats: {
-      type: DataTypes.TEXT,
-    },
+ 
     imgUrl: {
       type: DataTypes.STRING,
     },
-    age: DataTypes.INTEGER,
-    time: DataTypes.STRING,
+
+
+    year: DataTypes.INTEGER,
+    author: DataTypes.TEXT,
+    category: DataTypes.TEXT,
+    time: DataTypes.INTEGER,
+
   });
   return Movies;
 };
