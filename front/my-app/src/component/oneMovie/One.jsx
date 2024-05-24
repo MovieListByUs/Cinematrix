@@ -1,47 +1,46 @@
-
-
 import axios from "axios";
 import React, { useState } from "react";
-import { redirect, useNavigate } from "react-router-dom";
-import Navbar from "../navbar/Navbar";
-import "./Add.css";
-const Adding = ({ refre, setRefre }) => {
-  const navigate = useNavigate();
+import { useLocation, useNavigate } from "react-router-dom";
+import "./One.css";
+const One = ({ refre, setRefre, setData }) => {
   const [name, setName] = useState("");
   const [des, setdes] = useState("");
+  const [img, setImg] = useState("");
   const [year, setyear] = useState("");
   const [time, settime] = useState("");
   const [author, setauthor] = useState("");
   const [category, setcategory] = useState("");
-  const [img, setImg] = useState("");
+  const location = useLocation();
+  const { el } = location.state;
+  const navigate = useNavigate();
+  const updaty = (id) => {
+    let updatedData = {};
+    if (name !== "") updatedData.name = name;
+    if (des !== "") updatedData.description = des;
+    if (img !== "") updatedData.imgUrl = img;
+    if (year !== "") updatedData.year = year;
+    if (time !== "") updatedData.time = time;
+    if (author !== "") updatedData.author = author;
+    if (category !== "") updatedData.category = category;
 
-  const add = () => {
     axios
-      .post("http://localhost:4000/api/movies/add", {
-        name: name,
-        description: des,
-        imgUrl: img,
-        year: year,
-        time: time,
-        category: category,
-        author: author,
-      })
+      .put(`http://localhost:4000/api/movies/${id}`, updatedData)
       .then(() => {
-        console.log("added");
+        console.log(`element ${id} updated`);
+
         setRefre(!refre);
       })
       .catch((err) => {
         console.error(err);
       });
   };
+  console.log(el.id);
   return (
     <div>
-      <div className="nav">
-        <Navbar />
-      </div>
+      <h1>{el.name}</h1>
       <form>
         <fieldset>
-          <legend>adding Movies</legend>
+          <legend>updating Movies</legend>
           <label htmlFor="name">name:</label>
           <input
             type="text"
@@ -106,16 +105,15 @@ const Adding = ({ refre, setRefre }) => {
         <button
           id="btn"
           onClick={() => {
-            add();
+            updaty(el.id);
             navigate("/get");
-            // redirect("/get");
           }}
         >
-          add
+          badel
         </button>
       </form>
     </div>
   );
 };
 
-export default Adding;
+export default One;
