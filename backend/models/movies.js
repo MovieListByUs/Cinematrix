@@ -7,7 +7,9 @@ module.exports = (sequelize, DataTypes) => {
     imgUrl: {
       type: DataTypes.STRING,
     },
-    age: DataTypes.INTEGER,
+    year: DataTypes.INTEGER,
+    author: DataTypes.TEXT,
+    category: DataTypes.TEXT,
     time: DataTypes.INTEGER,
   });
   return Movies;

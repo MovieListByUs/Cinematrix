@@ -1,23 +1,31 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { redirect, useNavigate } from "react-router-dom";
 import "./Add.css";
 const Adding = ({ refre, setRefre }) => {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [des, setdes] = useState("");
+  const [year, setyear] = useState("");
+  const [time, settime] = useState("");
+  const [author, setauthor] = useState("");
+  const [category, setcategory] = useState("");
   const [img, setImg] = useState("");
-  const navigate = useNavigate();
+
   const add = () => {
     axios
       .post("http://localhost:4000/api/movies/add", {
         name: name,
         description: des,
         imgUrl: img,
+        year: year,
+        time: time,
+        category: category,
+        author: author,
       })
       .then(() => {
         console.log("added");
         setRefre(!refre);
-        navigate("/get");
       })
       .catch((err) => {
         console.error(err);
@@ -31,6 +39,7 @@ const Adding = ({ refre, setRefre }) => {
           <label htmlFor="name">name:</label>
           <input
             type="text"
+            placeholder="name"
             onChange={(e) => {
               setName(e.target.value);
             }}
@@ -38,6 +47,7 @@ const Adding = ({ refre, setRefre }) => {
           <label htmlFor="prenom">description:</label>
           <input
             type="text"
+            placeholder="description"
             onChange={(e) => {
               setdes(e.target.value);
             }}
@@ -45,8 +55,45 @@ const Adding = ({ refre, setRefre }) => {
           <label htmlFor="text">Img:</label>
           <input
             type="text"
+            placeholder="photo"
             onChange={(e) => {
               setImg(e.target.value);
+            }}
+          />
+          <label htmlFor="text">year:</label>
+
+          <input
+            type="text"
+            placeholder="year"
+            onChange={(e) => {
+              setyear(e.target.value);
+            }}
+          />
+          <label htmlFor="text">author:</label>
+
+          <input
+            type="text"
+            placeholder="author"
+            onChange={(e) => {
+              setauthor(e.target.value);
+            }}
+          />
+          <label htmlFor="text">category:</label>
+
+          <input
+            type="text"
+            placeholder="category"
+            onChange={(e) => {
+              setcategory(e.target.value);
+            }}
+          />
+          <label htmlFor="text">time:</label>
+
+          <input
+            type="text"
+            placeholder="time"
+            onChange={(e) => {
+              settime(e.target.value);
             }}
           />
         </fieldset>
@@ -54,6 +101,8 @@ const Adding = ({ refre, setRefre }) => {
           id="btn"
           onClick={() => {
             add();
+            navigate("/get");
+            // redirect("/get");
           }}
         >
           add

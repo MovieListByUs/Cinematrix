@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./One.css";
-const One = ({ refre, setRefre }) => {
+const One = ({ refre, setRefre, setData }) => {
   const [name, setName] = useState("");
   const [des, setDes] = useState("");
   const [img, setImg] = useState("");
@@ -18,8 +18,8 @@ const One = ({ refre, setRefre }) => {
         imgUrl: img,
       })
       .then(() => {
-        console.log(`element ${id} updated`);
         setRefre(!refre);
+        console.log(`element ${id} updated`);
       })
       .catch((err) => {
         console.error(err);
@@ -33,18 +33,21 @@ const One = ({ refre, setRefre }) => {
 
       <input
         type="text"
+        className="update"
         onChange={(e) => {
           setName(e.target.value);
         }}
       />
       <input
         type="text"
+        className="update"
         onChange={(e) => {
           setDes(e.target.value);
         }}
       />
       <input
         type="text"
+        className="update"
         onChange={(e) => {
           setImg(e.target.value);
         }}
