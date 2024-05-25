@@ -7,6 +7,20 @@ module.exports = {
       })
       .catch((err) => res.send(err));
   },
+  getmoviesofuser: (req, res) => {
+    db.User.findByPk(req.params.id, {
+      include: [
+        {
+          model: db.Movies,
+        },
+      ],
+    })
+      .then((result) => {
+        console.log(result);
+        res.send(result);
+      })
+      .catch((err) => console.error(err));
+  },
   addMovie: (req, res) => {
     console.log(req.body, "hi");
     db.Movies.create(req.body)

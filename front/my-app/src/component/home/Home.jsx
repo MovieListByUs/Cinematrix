@@ -34,7 +34,7 @@ function Home({addedMovies}) {
           <li className="nav-item">
             <a onClick={()=>{navigate('/list')}}>
               <i className="fa fa-circle-play nav-icon" />
-              <span className="nav-text">My List {addedMovies.length}</span>
+              <span className="nav-text">My List</span>
             </a>
           </li>
           <li className="nav-item">

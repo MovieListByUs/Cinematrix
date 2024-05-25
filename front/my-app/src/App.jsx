@@ -34,7 +34,7 @@ function App() {
           <Route path="/cats" element={<Categories />}></Route>
           <Route path="/one" element={<OneMovie />}></Route>
           <Route path="/movie" element={<MovieDetails setAddedMovies={setAddedMovies}/>}></Route>
-          <Route path="/list" element={<MyList addedMovies={addedMovies}/>}></Route>
+          <Route path="/list" element={<MyList addedMovies={addedMovies} setAddedMovies={setAddedMovies}/>}></Route>
         </Routes>
       </Router>
      
