@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function Home() {
+function Home({addedMovies}) {
   const navigate = useNavigate();
 
   return (
@@ -32,10 +32,9 @@ function Home() {
             </a>
           </li>
           <li className="nav-item">
-            <a>
+            <a onClick={()=>{navigate('/list')}}>
               <i className="fa fa-circle-play nav-icon" />
-              <span className="nav-text"
-              onClick={()=>{navigate('/list')}}>My List</span>
+              <span className="nav-text">My List {addedMovies.length}</span>
             </a>
           </li>
           <li className="nav-item">

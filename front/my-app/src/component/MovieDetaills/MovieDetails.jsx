@@ -3,9 +3,7 @@ import React, { useState } from 'react';
 import { IoBagAddSharp } from 'react-icons/io5';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-function MovieDetails() {
-  const [addedMovie, setAddedMovie] = useState([]);
-
+function MovieDetails({ setAddedMovies }) {
   const navigate = useNavigate();
   const location = useLocation();
   const { elem } = location.state;
@@ -16,13 +14,11 @@ function MovieDetails() {
         movieId: id,
         userId: 1,
       })
-      .then(() => {
-        console.log(`Movie with ID ${id} just added to MyList `);
-        const moviesAdded = [...addedMovie, elem]
-        setAddedMovie(moviesAdded);
-        navigate('/list', {
-          state: { elem: elem, addedMovie: moviesAdded },
-        });
+      .then((response) => {
+        console.log(`Movie with ID ${id} just added to MyList `, response);
+        setAddedMovies(elem)
+
+      // console.log((prevMovie) => [...prevMovie, elem]) 
       })
       .catch((error) => {
         console.error(error);

@@ -1,10 +1,8 @@
 import { useLocation } from 'react-router-dom';
 
-function MyList() {
-  const location = useLocation();
-  const { addedMovie } = location.state || { addedMovie: [] };
-
-  const movieList = Array.isArray(addedMovie) ? addedMovie : [];
+function MyList({addedMovies}) {
+console.log(addedMovies);
+  const movieList = addedMovies || [];
 
   return (
     <div>

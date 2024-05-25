@@ -11,6 +11,7 @@ import MyList from './component/Mylist/MyList';
 function App() {
   const [data, setData] = useState([]);
   const [refre, setRefre] = useState(false);
+  const [addedMovies, setAddedMovies] = useState([]);
 
 
 
@@ -29,11 +30,11 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<Home />}></Route>
+          <Route path="/" element={<Home addedMovies={addedMovies}/>}></Route>
           <Route path="/cats" element={<Categories />}></Route>
           <Route path="/one" element={<OneMovie />}></Route>
-          <Route path="/movie" element={<MovieDetails />}></Route>
-          <Route path="/list" element={<MyList />}></Route>
+          <Route path="/movie" element={<MovieDetails setAddedMovies={setAddedMovies}/>}></Route>
+          <Route path="/list" element={<MyList addedMovies={addedMovies}/>}></Route>
         </Routes>
       </Router>
      
