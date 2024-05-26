@@ -23,6 +23,7 @@ function Login() {
         "http://localhost:4000/api/auth/login",
         { username, password, role }
       );
+      console.log(response);
       // now we need to extract token from the data which is located in our response
       const token = response.data.token;
 

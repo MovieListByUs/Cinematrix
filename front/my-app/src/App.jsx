@@ -11,9 +11,14 @@ import CatList from "./component/user/CatList";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Adding from "./component/Adding/Adding";
+import MovieDetails from "./component/user/MovieDetails";
+import MyList from "./component/user/MyList";
+// import MovieDetails from "./component/user/MovieDetails";
+
 function App() {
   const [data, setData] = useState([]);
   const [refre, setRefre] = useState(false);
+  const [addedMovies, setAddedMovies] = useState([]);
   useEffect(() => {
     axios
       .get("http://localhost:4000/api/movies/getAll")
@@ -27,18 +32,6 @@ function App() {
   return (
     <>
       <Router>
-        {/* <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-            <li>
-              <Link to="/signup">Signup</Link>
-            </li>
-          </ul>
-        </nav>
-    </div> */}
         <Routes>
           <Route path="/" element={<Signup />} />
           <Route path="/login" element={<Login />} />
@@ -57,6 +50,23 @@ function App() {
             exact
             path="/add"
             element={<Adding refre={refre} setRefre={setRefre} />}
+          />
+          {/* <Route
+            path="/movie"
+            element={<MovieDetails setAddedMovies={setAddedMovies} />}
+          /> */}
+          <Route
+            path="/movie"
+            element={<MovieDetails setAddedMovies={setAddedMovies} />}
+          />
+          <Route
+            path="/list"
+            element={
+              <MyList
+                setAddedMovies={setAddedMovies}
+                addedMovies={addedMovies}
+              />
+            }
           />
           <Route
             exact
