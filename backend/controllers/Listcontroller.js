@@ -1,21 +1,24 @@
-const db = require("../database/index.js");
+
+
+const db = require('../database/index.js');
 
 module.exports = {
+
   getAllList: (req, res) => {
     db.MyList.findAll()
+
+    addToList: (req, res) => {
+    console.log(req.body, 'hi');
+
+    db.MyList.create({ movieId: req.body.movieId, userId: req.body.userId })
+
       .then((result) => {
         res.send(result);
       })
       .catch((err) => res.send(err));
   },
 
-  addToList: (req, res) => {
-    db.MyList.create({ movieId: req.body.movieId, UserId: req.body.UserId })
-      .then((result) => {
-        res.status(200).send(result);
-      })
-      .catch((err) => console.error(err));
-  },
+
   removeFromList: (req, res) => {
     db.MyList.destroy({ where: { movieId: req.params.movieId } })
       .then(() => {
