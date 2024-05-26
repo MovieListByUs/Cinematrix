@@ -7,6 +7,10 @@ router.get("/:name", controllers.searchMovie);
 
 router.get("/cats/:category", controllers.getByCategory);
 
+router.get("/movies/:id", controllers.getmoviesofuser);
+
+
+
 
 
 

@@ -1,9 +1,8 @@
-
 const db = require("../database");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-// register function 
+// register function
 const register = async (req, res) => {
   const { username, password } = req.body;
   try {
@@ -22,10 +21,7 @@ const register = async (req, res) => {
   }
 };
 
-
-
-
-// login function 
+// login function
 const login = async (req, res) => {
   const { username, password, role } = req.body;
   try {
@@ -42,19 +38,17 @@ const login = async (req, res) => {
       return res.status(401).json({ error: "Invalid password" });
     }
 
-
-
     // create a JWT token with the user's id, username, and role, and sign it with a secret key
     const token = jwt.sign(
       { id: user.id, username: user.username, role: user.role },
       "your_jwt_secret"
     );
-    res.json({ token });
+    res.json({ token, id: user.id });
+    console.log(user.id);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: error.message });
   }
 };
-
 
 module.exports = { register, login };
