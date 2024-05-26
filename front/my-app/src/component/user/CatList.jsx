@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
-
+import "./CatsList.css";
 const CatList = () => {
   const [selected, setSelected] = useState(null);
   const location = useLocation();
@@ -19,25 +19,35 @@ const CatList = () => {
       });
   };
   return (
-    <div className="contains">
-      {movie.map((elem) => (
-        <div key={elem.id} className="movie-card">
-          <div
-            className="img"
-            style={{ backgroundImage: `url(${elem.imgUrl})` }}
-          >
-            <div
-              className="overlay"
-              onClick={() => {
-                getOne(elem.id);
-                navigate("/movie", { state: { elem: elem } });
-              }}
-            >
-              <h3>{elem.name}</h3>
+    <div className="grid-container">
+      <div className="contains">
+        {movie.map((elem) => (
+          <div className="wrapper">
+            {console.log(elem, "it s me")}
+            <div className="grid-item">
+              <div className="card">
+                <img src={elem.imgUrl} alt="movie" />
+                <div className="descriptions">
+                  <div
+                    className="overlay"
+                    onClick={() => {
+                      getOne(elem.id);
+                      navigate("/movie", { state: { elem: elem } });
+                    }}
+                  >
+                    <h1>{elem.name}</h1>
+                  </div>
+                  <p>{elem.description}</p>
+                  <button>
+                    <i className="fab fa-youtube" />
+                    watch movie
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };
