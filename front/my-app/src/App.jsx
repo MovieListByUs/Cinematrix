@@ -1,12 +1,3 @@
-
-
-import './App.css';
-import Categories from './component/Category/Categories';
-import Home from './component/home/Home';
-import OneMovie from './component/oneMovie/OneMovie';
-import MovieDetails from './component/MovieDetaills/MovieDetails';
-import MyList from './component/Mylist/MyList';
-
 import { useEffect, useState } from "react";
 import Login from "./component/home/Login";
 import Signup from "./component/home/Signup";
@@ -74,11 +65,10 @@ function App() {
             refre={refre}
             setData={setData}
             setRefre={setRefre}
-
+          />
         </Routes>
       </Router>
     </>
-
   );
 }
 
