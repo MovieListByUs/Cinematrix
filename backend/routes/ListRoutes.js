@@ -1,10 +1,6 @@
 const routerLi = require("express").Router();
-const controllerLI = require("../controllers/Listcontroller.js");
+const controllerLi = require("../controllers/Listcontroller.js");
 
+routerLi.post("/addTolist", controllerLi.addToList);
 
-routerLi.post("/addTolist", controllerLI.addToList);
-
-
-
-
-module.exports = routerLi
+module.exports = routerLi;
