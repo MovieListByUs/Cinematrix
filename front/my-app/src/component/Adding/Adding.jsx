@@ -1,5 +1,3 @@
-
-
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -55,12 +53,18 @@ const Adding = ({ refre, setRefre }) => {
     ]);
   };
 
+
   // The addMovie function adds a new empty movie object to the movies state array.
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     for (const movie of movies) {
       const movieData = new FormData();
+
+
+  // The addMovie function adds a new empty movie object to the movies state array.
+
+
       movieData.append("name", movie.name);
       movieData.append("description", movie.description);
       movieData.append("photo", movie.photo);

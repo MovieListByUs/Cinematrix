@@ -11,6 +11,7 @@
     transform: skew(-25deg);
 }
 
+
 .skew-menu ul li {
     background: #fff;
     float: left;
@@ -20,6 +21,12 @@
     color: #555;
     font-weight: bolder;
     transition: all 0.3s linear;
+
+html {
+
+    /* background: #1c1d22; */
+    font-family: "Varela Round", sans-serif;
+
 }
 
 .skew-menu ul li:first-child {

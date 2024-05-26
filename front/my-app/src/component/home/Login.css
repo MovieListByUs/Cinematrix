@@ -1,3 +1,4 @@
+
 body:not(.user-is-tabbing) button:focus,
 body:not(.user-is-tabbing) input:focus,
 body:not(.user-is-tabbing) select:focus,
@@ -5,8 +6,13 @@ body:not(.user-is-tabbing) textarea:focus {
     outline: none;
 }
 
+
+/* ########################################################## */
+
 h1 {
     color: white;
+
+
     font-size: 35px;
     font-weight: 800;
 }
@@ -24,8 +30,9 @@ h1 {
 }
 
 .flex-container {
+
     width: 600px; 
-    
+
     margin-top: 200px;
 
     display: flex;
