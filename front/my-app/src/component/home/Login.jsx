@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
-
+import "./Login.css";
 // login component
 function Login() {
   // we state variables for username, password, role(default value is user), and message
@@ -43,7 +43,51 @@ function Login() {
 
   return (
     <div>
-      <h2>Login</h2>
+      <div className="flex-container" style={{ "margin-right": "100px" }}>
+        <div className="content-container">
+          <div className="form-container">
+            <form action="/action_page.php" onSubmit={handleLogin}>
+              <h1>Login</h1>
+              <br />
+              <br />
+              <span className="subtitle">USERNAME:</span>
+              <br />
+              <input
+                id="username"
+                name="username"
+                defaultValue=""
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+              <br />
+              <span className="subtitle">PASSWORD:</span>
+              <br />
+              <input
+                id="password"
+                name="password"
+                defaultValue=""
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <br />
+              <div>
+                <label>Role</label>
+                <select value={role} onChange={(e) => setRole(e.target.value)}>
+                  <option value="user">User</option>
+                  <option value="admin">Admin</option>
+                </select>
+              </div>
+              <br />
+              <button id="submit">Login</button>
+            </form>
+          </div>
+        </div>
+        {message && <p>{message}</p>}
+      </div>
+
+      {/* <h2>Login</h2>
       <form onSubmit={handleLogin}>
         <div>
           <label>Username</label>
@@ -70,7 +114,7 @@ function Login() {
         </div>
         <button type="submit">Login</button>
       </form>
-      {message && <p>{message}</p>}
+      {message && <p>{message}</p>} */}
     </div>
   );
 }

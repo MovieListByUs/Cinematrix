@@ -11,7 +11,6 @@ const Cats = () => {
     "Science Fiction",
   ];
 
-  const [category, setCategory] = useState("");
   const [movies, setMovies] = useState([]);
 
   const navigate = useNavigate();
